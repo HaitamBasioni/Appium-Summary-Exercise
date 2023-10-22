@@ -2,17 +2,18 @@ package logic.pages;
 
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.android.AndroidDriver;
+import logic.pages.BasePage;
 import org.openqa.selenium.By;
 
-public class MainPage extends BasePage{
+public class MainPage extends BasePage {
     //locators
-    By PLUS_SIGN_TO_ADD = By.id("com.claudivan.taskagenda:id/btNovoEvento") ;
+    private final By PLUS_SIGN_TO_ADD = By.id("com.claudivan.taskagenda:id/btNovoEvento") ;
 
     // mobile elements
-    MobileElement plusSignToAdd;
-    MobileElement today;
-    MobileElement tomorrow;
-    MobileElement other;
+    private MobileElement plusSignToAdd;
+    private MobileElement today;
+    private MobileElement tomorrow;
+    private MobileElement other;
 
     //strings to locate elements by text
     String day1 = "Today";

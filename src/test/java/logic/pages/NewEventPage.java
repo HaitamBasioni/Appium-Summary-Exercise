@@ -90,4 +90,13 @@ public class NewEventPage extends BasePage {
         saveButton = waitToVisible(SAVE_BUTTON);
         saveButton.click();
     }
+    public void fullProcessAddingEvent(String title,int day,int hours,int minutes, String amPM, String repeat,int task,String description){
+        inputName(title);
+        choseDate(day);
+        choseTime(hours,minutes,amPM);
+        choseRepeat(repeat);
+        choseTask(task);
+        addDescription(description);
+        clickSaveButton();
+    }
 }

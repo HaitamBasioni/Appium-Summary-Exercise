@@ -31,5 +31,9 @@ public class AndroidDriverManager {
         }
         return null;
     }
+    public static void quitDriver(AndroidDriver driver){
+        if (driver!=null)
+            driver.quit();
+    }
 
 }

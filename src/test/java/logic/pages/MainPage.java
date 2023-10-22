@@ -1,5 +1,6 @@
 package logic.pages;
 
+import enums.ChoosingDayEvent;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.android.AndroidDriver;
 import logic.pages.BasePage;
@@ -15,10 +16,7 @@ public class MainPage extends BasePage {
     private MobileElement tomorrow;
     private MobileElement other;
 
-    //strings to locate elements by text
-    String day1 = "Today";
-    String day2 ="Tomorrow";
-    String day3= "Other";
+
 
     public MainPage(AndroidDriver<MobileElement> driver) {
         super(driver);
@@ -26,17 +24,16 @@ public class MainPage extends BasePage {
     public void clickPlusSign(){
         plusSignToAdd=waitToVisible(PLUS_SIGN_TO_ADD);
         plusSignToAdd.click();
-        today=waitForElementWithText(day1);
-        tomorrow = waitForElementWithText(day2);
-        other= waitForElementWithText(day3);
+        today=waitForElementWithText(String.valueOf(ChoosingDayEvent.Today));
+        tomorrow = waitForElementWithText(String.valueOf(ChoosingDayEvent.Tomorrow));
+        other= waitForElementWithText(String.valueOf(ChoosingDayEvent.Other));
     }
-    public  void  clickToday(){
-        today.click();
-    }
-    public  void clickTomorrow(){
-        tomorrow.click();
-    }
-    public  void clickOther(){
-        other.click();
+    public  void  clickDayEvent(ChoosingDayEvent dayEvent){
+        if (dayEvent== ChoosingDayEvent.Today)
+            today.click();
+        else if (dayEvent== ChoosingDayEvent.Tomorrow)
+            tomorrow.click();
+        else
+            other.click();
     }
 }

@@ -1,0 +1,11 @@
+{
+  "desiredCapabilities": {
+    "platformName": "Android",
+    "deviceName": "emulator-5554",
+    "platformVersion": "14",
+    "automationName": "UiAutomator2",
+    "appPackage": "com.claudivan.taskagenda",
+    "appActivity": ".Activities.MainActivity"
+  },
+  "appiumServerURL": "http://localhost:4723/"
+}

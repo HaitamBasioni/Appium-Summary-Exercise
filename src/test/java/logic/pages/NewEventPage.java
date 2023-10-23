@@ -53,7 +53,6 @@ public class NewEventPage extends BasePage {
         calenderDay.click();
         okButton = waitToVisible(OK_BUTTON);
         okButton.click();
-
     }
     public  void choseTime(int hours , int minutes, String amORpm ){
         time = waitToVisible(TIME);
@@ -99,5 +98,9 @@ public class NewEventPage extends BasePage {
         choseTask(task);
         addDescription(description);
         clickSaveButton();
+    }
+    public  String getRepeat(){
+        repeat = waitToVisible(REPEAT);
+        return repeat.getText();
     }
 }

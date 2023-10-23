@@ -40,8 +40,9 @@ public class NewEventPage extends BasePage {
     public NewEventPage(AndroidDriver<MobileElement> driver) {
         super(driver);
     }
-    public void inputName(String title){
+    public void inputTitle(String title){
         eventName = waitToVisible(EVENT_NAME);
+        eventName.clear();
         eventName.sendKeys(title);
     }
 
@@ -91,7 +92,7 @@ public class NewEventPage extends BasePage {
         saveButton.click();
     }
     public void fullProcessAddingEvent(String title,int day,int hours,int minutes, String amPM, String repeat,int task,String description){
-        inputName(title);
+        inputTitle(title);
         choseDate(day);
         choseTime(hours,minutes,amPM);
         choseRepeat(repeat);

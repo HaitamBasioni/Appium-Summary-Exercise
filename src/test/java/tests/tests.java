@@ -30,7 +30,7 @@ public class tests {
         //Act
         mainPage.clickPlusSign();
         mainPage.clickDayEvent(ChoosingDayEvent.Today);
-        newEventPage.fullProcessAddingEvent(eventTittle,23,10,22,"PM","Every day",2,"its meting");
+        newEventPage.fullProcessAddingEvent(eventTittle,23,10,22,"PM","Every day",2,"Zoom meeting");
 
     }
     @AfterEach
@@ -60,5 +60,18 @@ public class tests {
         boolean isDeleted = editEventPage.isEventDeleted();
         Assertions.assertEquals(true , isDeleted);
     }
-    
+    @Test
+    public void testEventEditName(){
+        //Arrange in the beforeEach adding new event
+        // Act
+        mainPage.clickPendingEvents();
+        pendingEventsPage.clickEventByName(eventTittle);
+        editEventPage.clickEdit();
+        newEventPage.inputTitle("party");
+        newEventPage.clickSaveButton();
+        //Assert
+        String eventTittle= editEventPage.getEventTittle();
+        Assertions.assertEquals("party",eventTittle);
+    }
+
 }

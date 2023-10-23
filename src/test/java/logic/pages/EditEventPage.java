@@ -15,6 +15,9 @@ public class EditEventPage extends BasePage{
     private final By EVENT_DATE= By.id("com.claudivan.taskagenda:id/tvData");
     private final By DATE = By.id("com.claudivan.taskagenda:id/btData");
     private final By TASK_TYPE = By.id("com.claudivan.taskagenda:id/tvTipo");
+    private final By DESCRIPTION = By.id("com.claudivan.taskagenda:id/tvDescricao");
+    private final By COMPLETED = By.id("com.claudivan.taskagenda:id/cbEventoConcluido");
+    private final By BACK_BUTTON = By.xpath("//android.widget.ImageButton[@content-desc=\"Navigate up\"]");
 
     //Mobile elements
     private MobileElement delete;
@@ -27,6 +30,10 @@ public class EditEventPage extends BasePage{
     private MobileElement date;
     private MobileElement calenderDay;
     private MobileElement taskType;
+    private MobileElement description;
+    private MobileElement completed;
+    private MobileElement backButton;
+    private MobileElement completeElement;
     public EditEventPage(AndroidDriver<MobileElement> driver) {
         super(driver);
     }
@@ -71,6 +78,23 @@ public class EditEventPage extends BasePage{
     public String getTaskType(){
         taskType=waitToVisible(TASK_TYPE);
         return taskType.getText();
+    }
+    public String getDescription(){
+        description = waitToVisible(DESCRIPTION);
+        return  description.getText();
+    }
+    public void clickCompleted(){
+        completed = waitToVisible(COMPLETED);
+        completed.click();
+    }
+    public void clickBackButton(){
+        backButton = waitToVisible(BACK_BUTTON);
+        backButton.click();
+    }
+    public boolean isCompleteDisplayed(){
+        final String complete ="Completed";
+        completeElement =waitForElementWithText(complete);
+        return completeElement.isDisplayed();
     }
 
 

@@ -125,5 +125,30 @@ public class tests {
         String eventType= editEventPage.getTaskType();
         Assertions.assertEquals("Task",eventType);
     }
+    @Test
+    public void testEventEditDescription(){
+        //Arrange in the beforeEach adding new event
+        // Act
+        mainPage.clickPendingEvents();
+        pendingEventsPage.clickEventByName(eventTittle);
+        editEventPage.clickEdit();
+        newEventPage.addDescription("change description");
+        newEventPage.clickSaveButton();
+        //Assert
+        String eventDescription= editEventPage.getDescription();
+        Assertions.assertEquals("change description",eventDescription);
+    }
+    @Test
+    public void testEventIsCompleted(){
+        //Arrange in the beforeEach adding new event
+        // Act
+        mainPage.clickPendingEvents();
+        pendingEventsPage.clickEventByName(eventTittle);
+        editEventPage.clickCompleted();
+        editEventPage.clickBackButton();
+        //Assert
+        boolean isCompleted= editEventPage.isCompleteDisplayed();
+        Assertions.assertEquals(true,isCompleted);
+    }
 
 }
